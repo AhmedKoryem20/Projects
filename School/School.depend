@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1692128895 source:f:\avr embedded ali shawky\c_projects\school\fun.c
+	<stdio.h>
+	<stdlib.h>
+	"STD_TYPES.h"
+	"stdbool.h"
+	"fun.h"
+
+1692123754 f:\avr embedded ali shawky\c_projects\school\fun.h
+	"STD_TYPES.h"
+	"stdbool.h"
+
+1692123751 f:\avr embedded ali shawky\c_projects\school\std_types.h
+
+1692128100 source:f:\avr embedded ali shawky\c_projects\school\main.c
+	<stdio.h>
+	<stdlib.h>
+	"fun.h"
+	"stdbool.h"
+	"fun.h"
+

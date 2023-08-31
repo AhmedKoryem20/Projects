@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "STD_TYPES.h"
+#include "stdbool.h"
+#include "fun.h"
+ Uint_16 top=-1;
+Uint_8 List[5];
+
+bool SDB_AddEntry(Uint_8 ID,Uint_16 year_of_birth,Uint_8* C_id,Uint_8* C_grade)
+{
+    Uint_8 i,k;
+    Uint_8 f=1;
+    for(i=0;i<5;i++)
+        {
+            if(school[i].id==ID || top==4)
+                {
+                    f=0;
+                    return false;
+                }
+        }
+        if(f)
+            {
+                top++;
+                school[top].id=ID;
+                school[top].year_of_birth=year_of_birth;
+                for(k=0;k<3;k++)
+                    {
+                        school[top].course_id[k]=C_id[k];
+                        school[top].course_grade[k]=C_grade[k];
+                    }
+                    List[top]=school[top].id;
+                return true;
+            }
+
+
+
+}
+
+
+
+bool SDB_ReadEntry(Uint_8 ID,Uint_16* year_of_birth,Uint_8* C_id,Uint_8* C_grade)
+{       Uint_8 i,k,f=1;
+        for(i=0;i<5;i++)
+        {
+            if(school[i].id==ID)
+                {
+                    f=0;
+                    *year_of_birth=school[i].year_of_birth;
+                    for(k=0;k<3;k++)
+                        {
+                            C_id[k]=school[top].course_id[k];
+                            C_grade[k]=school[top].course_grade[k];
+                        }
+
+                    return true;
+                }
+        if(f)
+            {
+                return false;
+            }
+        }}
+
+
+
+
+bool SDB_IsIdExist(Uint_8 id)
+{
+    Uint_8 i,f=0;
+    for(i=0;i<5;i++)
+        {
+            if(school[i].id==id)
+                {
+                    f=1;
+                }
+        }
+    if(f)
+        {
+            return true;
+        }
+        else
+            {
+                return false;
+            }
+}
+
+
+
+void Get_ListID (Uint_8 *Count , Uint_8 *List)
+{
+     Count=top+1;
+    printf("Number Of Students Are: %d\n",Count);
+    Uint_16 c;
+    printf("\t\t**IDs List**\n\n");
+    for (c=0;c<=top;c++)
+    {
+        List[top]=school[c].id;
+        printf("%d- %d\n",c+1,List[c]);
+    }
+}
