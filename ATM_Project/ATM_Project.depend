@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1691633219 source:f:\avr embedded ali shawky\c_projects\atm\atm_project\functions.c
+	<stdio.h>
+	<stdlib.h>
+	"Functions.h"
+
+1691627792 f:\avr embedded ali shawky\c_projects\atm\atm_project\functions.h
+
+1691631924 source:f:\avr embedded ali shawky\c_projects\atm\atm_project\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Functions.h"
+

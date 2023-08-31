@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "Functions.h"
+static int flag=3;
+E1_Users Arr_Users[]={{11,111,0},{22,222,0},{33,333,0}};
+void Login_To_System (void)
+{
+int id,pass,i;
+int Deposit_Cash=0 , Withdraw_Cash=0 , Tranfer_Cash=0;
+int Operation;
+printf("Please Enter Your ID: ");
+scanf("%d",&id);
+for (i=0;i<3;i++)
+{
+if(id==Arr_Users[i].ID)
+{
+    printf("Welcome User %d",Arr_Users[i].ID);
+    printf("\nPlease Enter Your Password: ");
+    while (flag)
+    {
+    scanf("%d",&pass);
+    if (pass==Arr_Users[i].Password)
+    {
+        printf("\t\tPlease Select Your Operation: ");
+        printf("\nEnter Number '1' To Transfer Money\nEnter Number '2' To Deposit Money\nEnter Number '3' To Withdraw Money\nEnter Number '4' To Check Your Balance:\t");
+        scanf("%d",&Operation);
+        switch (Operation)
+        {
+        case 1:
+            ////// Function To Transfer Money
+            printf("u need to transfer money");
+            break;
+        case 2:
+            printf("Please Enter The Amount Of Cash:\t");
+            scanf("%d",&Deposit_Cash);
+            Deposit_Money (Arr_Users[i].ID,Deposit_Cash,i);
+            break;
+        case 3:
+            printf("Please Enter The Amount Of Cash:\t");
+            scanf("%d",&Withdraw_Cash);
+            char Case = Withdraw_Money (Arr_Users[i].ID ,Withdraw_Cash,i);
+            break;
+        case 4:
+            Balance_Check(Arr_Users[i].Balance,i);
+            break;
+        default:
+            printf("\nNo Operation Found\n");
+        }
+    }
+    else
+    {
+        printf("Try Again");
+        flag--;
+    }
+    if (flag==0)
+    {
+        printf("You Can Try Again After 10 Minutes");
+        break;
+    }
+    }
+}
+else
+{
+    printf("User Not Found\n");
+    break;
+}
+}
+}
+
+/**************************Balance Check Function**************************/
+void Balance_Check (char ID, int n)
+{
+    printf("Your Current Balance Is: %d",Arr_Users[n].Balance);
+}
+/**************************Deposit Function*******************************/
+void Deposit_Money (char ID , int Cash_Amount,int n)
+{
+Arr_Users[n].Balance=+ Cash_Amount;
+}
+/**************************Withdraw Function******************************/
+char Withdraw_Money (char ID , int Cash_Amount, int n)
+{
+    char Cond1[4]="True" , Cond2[5]="False";
+    if (Arr_Users[n].Balance>=Cash_Amount)
+    {
+        Arr_Users[n].Balance=- Cash_Amount;
+        return Cond1;
+    }
+    else
+    {
+    return Cond2;
+    }
+}
